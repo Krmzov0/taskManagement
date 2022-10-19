@@ -1,0 +1,21 @@
+.nav li{
+    position: relative;
+}
+
+.nav li::after{
+    content: "";
+    position: absolute;
+    right: -35px;
+    top: 0;
+    height: 100%;
+    width: 8px;
+    background: #19976A;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: .1s ease;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.nav li:hover::after{
+    transform: scaleX(1);
+}
