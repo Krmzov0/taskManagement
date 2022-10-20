@@ -19,3 +19,29 @@
 .nav li:hover::after{
     transform: scaleX(1);
 }
+a{
+    transition: .2s ease;
+}
+.nav li:hover a {
+    color: #e9e9e9;
+}
+.usermenu h4{
+    position: relative;
+}
+.usermenu h4::after{
+    content: "";
+    position: absolute;
+    right: -16px;
+    top: 0;
+    height: 100%;
+    width: 8px;
+    background: #19976A;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: .1s ease;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.usermenu h4:hover::after{
+    transform: scaleX(1);
+}

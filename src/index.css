@@ -15,8 +15,28 @@ html{
   padding: 0;
   box-sizing: border-box;
   font-family: 'Satoshi-Variable';
+  user-select: none;
 }
 
 li{
   list-style: none;
+}
+.createAcc::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 0.5px;
+  height: 80%;
+  background: #282828;
+}
+.createAcc h1::after{
+  content: "";
+  position: relative;
+  right: 0;
+  height: 4px;
+  width: 40%;
+  background: #19976A;
+  margin-left: 1.5rem;
 }

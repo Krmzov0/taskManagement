@@ -15,7 +15,7 @@ function Home() {
     const CreateTaskToggle = () => {
         popup ? setpopup(false) : setpopup(true)
     }
-
+    
     const [task, setTask] = useState([]);
     
     useEffect(() => {
@@ -43,8 +43,8 @@ function Home() {
             fData.append('description', description);
 
             axios.post(url, fData)
-                .then(response => alert(response.data))
-                .catch(error => alert(error));
+                .then(response => console.log(response.data))
+                .catch(error => console.log(error));
 
             window.location.reload(false);
         }
