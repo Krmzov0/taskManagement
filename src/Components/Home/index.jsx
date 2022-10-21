@@ -91,10 +91,25 @@ function Home() {
 
                             <div className='w-[49%] rounded-xl p-8 border border-[#3b3b3b] text-[#fff] task'>
                                 <div className='w-full flex justify-between items-center'>
-                                    <h3 className='text-xl font-regular relative flex items-center left-[20px]'>{task.title}</h3>
+                                    <h3 className='text-2xl font-regular relative flex items-center left-[20px]'>{task.title}</h3>
 
                                     <div className='flex items-center'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="hoverIcon icon icon-tabler icon-tabler-check" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#e9e9e9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <svg onClick={() => {let completeTask = (task.id);
+                                        alert(completeTask);
+    
+                                        let completed = new FormData();
+  
+                                        //Adding files to the formdata
+                                        completed.append("id", completeTask);
+                                        const deleteUrl = 'http://localhost/TodoList/complete.php';
+
+                                        axios.post(deleteUrl, completed)
+                                        .then(response => console.log(response.data))
+                                        .catch(error => console.log(error));
+
+                                        window.location.reload(false);
+                                        
+                                        }} xmlns="http://www.w3.org/2000/svg" class="hoverIcon icon icon-tabler icon-tabler-check" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#e9e9e9" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <path d="M5 12l5 5l10 -10" />
                                         </svg>
@@ -122,7 +137,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <p className='mt-2 text-lg font-regular text-[#e9e9e9] max-w-[85%]'>{task.description}</p>
+                                <p className='mt-2 text-xl font-regular text-[#e9e9e9] max-w-[85%]'>{task.description}</p>
                                 <p className='mt-3 text-md font-regular text-[#818387] flex justify-between items-center'>Created at: {task.date_time} <small name='id'>Id: {task.id}</small></p>
                             </div>
                         ))}
