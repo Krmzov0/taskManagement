@@ -16,7 +16,7 @@ function Login() {
     else if (password.length === 0) {
       alert("Password is empty");
     }else {
-      const url = 'http://localhost/TodoList/createAccount.php';
+      const url = 'http://localhost/TodoList/login.php';
 
       let fData = new FormData();
       fData.append('username', username);

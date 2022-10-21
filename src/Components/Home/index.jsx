@@ -91,7 +91,7 @@ function Home() {
 
                             <div className='w-[49%] rounded-xl p-8 border border-[#3b3b3b] text-[#fff] task'>
                                 <div className='w-full flex justify-between items-center'>
-                                    <h3 className='text-2xl font-regular relative flex items-center left-[20px]'>{task.title}</h3>
+                                    <h3 className='text-xl font-medium relative flex items-center left-[20px]'>{task.title}</h3>
 
                                     <div className='flex items-center'>
                                         <svg onClick={() => {let completeTask = (task.id);
@@ -115,7 +115,6 @@ function Home() {
                                         </svg>
 
                                         <svg onClick={() => {let deletedId = (task.id);
-                                        alert(deletedId);
     
                                         let formData = new FormData();
   
@@ -137,7 +136,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <p className='mt-2 text-xl font-regular text-[#e9e9e9] max-w-[85%]'>{task.description}</p>
+                                <p className='mt-2 text-lg font-regular text-[#e9e9e9e7] max-w-[85%]'>{task.description}</p>
                                 <p className='mt-3 text-md font-regular text-[#818387] flex justify-between items-center'>Created at: {task.date_time} <small name='id'>Id: {task.id}</small></p>
                             </div>
                         ))}
