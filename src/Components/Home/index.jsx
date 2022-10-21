@@ -36,7 +36,7 @@ function Home() {
             alert("Enter Description");
         }
         else {
-            const url = 'http://localhost/TodoList/InsertApi.php';
+            const url = 'http://localhost/TodoList/insertApi.php';
 
             let fData = new FormData();
             fData.append('title', title);
@@ -47,6 +47,7 @@ function Home() {
                 .catch(error => console.log(error));
 
             window.location.reload(false);
+            
         }
     }
 
@@ -98,7 +99,22 @@ function Home() {
                                             <path d="M5 12l5 5l10 -10" />
                                         </svg>
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="hoverIcon ml-3 icon icon-tabler icon-tabler-x" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#e9e9e9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <svg onClick={() => {let deletedId = (task.id);
+                                        alert(deletedId);
+    
+                                        let formData = new FormData();
+  
+                                        //Adding files to the formdata
+                                        formData.append("id", deletedId);
+                                        const deleteUrl = 'http://localhost/TodoList/delete.php';
+
+                                        axios.post(deleteUrl, formData)
+                                        .then(response => console.log(response.data))
+                                        .catch(error => console.log(error));
+
+                                        window.location.reload(false);
+                                        
+                                        }} xmlns="http://www.w3.org/2000/svg" class="hoverIcon ml-3 icon icon-tabler icon-tabler-x" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#e9e9e9" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <line x1="18" y1="6" x2="6" y2="18" />
                                             <line x1="6" y1="6" x2="18" y2="18" />
@@ -107,7 +123,7 @@ function Home() {
                                 </div>
 
                                 <p className='mt-2 text-lg font-regular text-[#e9e9e9] max-w-[85%]'>{task.description}</p>
-                                <p className='mt-3 text-md font-regular text-[#818387] flex justify-between items-center'>Created at: {task.date_time} <small>Id: {task.id}</small></p>
+                                <p className='mt-3 text-md font-regular text-[#818387] flex justify-between items-center'>Created at: {task.date_time} <small name='id'>Id: {task.id}</small></p>
                             </div>
                         ))}
                 </div>
